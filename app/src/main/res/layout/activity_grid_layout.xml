@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.cz.android.gif.sample.extension.GridLayout
+        android:id="@+id/colorTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:grid_itemHorizontalPadding="12dp"
+        app:grid_itemVerticalPadding="8dp"
+        app:grid_itemSizeMode="horizontal_padding"
+        app:grid_itemWidth="60dp"
+        app:grid_itemHeight="60dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

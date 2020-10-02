@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0091)http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="./Examples and Tips; How to optimize_files/analytics.js(1).download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app101.us.archive.org';v.server_ms=765;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="./Examples and Tips; How to optimize_files/playback.bundle.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./Examples and Tips; How to optimize_files/wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("http://web.archive.org/web");
+  __wm.wombat("http://www.danbbs.dk:80/~dino/whirlgif/examples.html","20050216195116","http://web.archive.org/web/","web","/_static/",
+	      "1108583476","www.danbbs.dk:80");
+</script>
+<link rel="stylesheet" type="text/css" href="./Examples and Tips; How to optimize_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Examples and Tips; How to optimize_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+   
+   <meta name="AUTHTOR" content="Hans Dinsen-Hansen">
+   <title>Whirlgif 3.04 Examples and Tips; How to optimize</title>
+<link rel="toc" href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/index.html" title="Whirlgif">
+<link href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/download.html" title="Download">
+<link href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/whirlgifman.html" title="Manual">
+<link href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/lzw.html" title="LZW">
+<link href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html" title="GIF87">
+<link href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html" title="GIF89">
+</head>
+<body text="#000000" bgcolor="#FFC08D" background="./Examples and Tips; How to optimize_files/brun.jpg" link="#0000FF" vlink="#800000" alink="#FF0000"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;">
+</div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="./Examples and Tips; How to optimize_files/donate.html" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(625,27,25,2,"web","http://www.danbbs.dk/~dino/whirlgif/examples.html","20050216195116",1996,"/_static/",["/_static/css/banner-styles.css?v=NHuXCfBH","/_static/css/iconochive.css?v=qtvMKcIJ"]);
+  __wm.rw(1);
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/download.html">Download</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/whirlgifman.html">Manual</a>]
+ [Examples]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/lzw.html">LZW explained</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html">GIF 87a Spec</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html">GIF 89a Spec</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/index.html">Whirlgif 3.x Homepage</a>]
+<hr>
+
+<a name="top"></a>
+<h1 align="CENTER"><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#Examples">Examples</a>,
+<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#Tips">Tips</a>, and <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#refs">References</a>.</h1>
+On this page I have collected some information which may be valuable, but which is not found in the
+documents distributed with Whirlgif 3.04.
+<h2 align="CENTER"><a name="Examples">Examples.</a></h2>
+ <p>In my examples, I will give Unix style scripts.  Personally, I prefer to use scripts.  It makes
+it easier to debug the results.
+
+</p><h3><a name="Ex1">Example 1</a>.</h3>
+On the internet a <i>mail-to-me</i> animated GIF has been floating around. It takes up  23,019 bytes,
+and shows a frog which eagerly eats letters as they are presented to it.  I have used reanimations of
+it to hunt bugs in Whirlgif (my excuse is that <cite>most frogs in nature hunt bugs for a living</cite>).
+
+<p>The animation consists of 28 images.  In the beginning, the frog just sits there
+and looks at a letter:<br>
+</p><center><img src="./Examples and Tips; How to optimize_files/frog01.gif" width="585" height="33" alt="frog01.gif"></center>
+It is followed by a a series of images where the frog sticks out its tongue further and further.
+Finally it catches the letter:<br>
+<center><img src="./Examples and Tips; How to optimize_files/frog11.gif" width="585" height="33" alt="frog11.gif"></center>
+Then the frog withdraws the letter and does what frogs usually do with what they catch, it eats it:<br>
+<center><img src="./Examples and Tips; How to optimize_files/frog22.gif" width="585" height="33" alt="frog22.gif"></center>
+
+<p>In the animation the gray color is chosen as a transparent background color.  If I choose that
+each frame will be disposed by the background, each frame stands for it self. The background
+functions as an eraser.
+
+</p><p>The animation script looks as follows:
+</p><pre>#! /bin/sh
+whirlgif -background 5 -loop 0 -trans 5 -disp back -o <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/animfrog.gif">animfrog.gif</a> \
+-time 80 frog01.gif \
+-time 20 frog02.gif frog03.gif frog04.gif frog05.gif frog06.gif frog07.gif \
+   frog08.gif frog09.gif frog10.gif frog11.gif frog12.gif frog13.gif frog14.gif \
+   frog15.gif frog16.gif frog17.gif frog18.gif frog19.gif frog20.gif frog21.gif \
+   frog22.gif frog23.gif frog24.gif \
+-time 15 frog25.gif frog26.gif frog27.gif \
+-time 300 frog28.gif
+exit
+</pre> 
+<p>If you are interested, all the GIFs mentioned by name in the scripts
+on this page can be fetched with the HTTP-protocol - but I'm not telling you how ...
+
+</p><h3><a name="Ex2">Example 2</a>.</h3>
+When I analyzed the frog-files, I found out that they actually used 12 different colors, but that the <i>Color
+Map</i> defined 256 colors.
+
+<p>In my favorite paint program, I reduced the <i>Color Map</i> - the paint program calls it the <i>Palette</i>
+- to 16 colors.  I only bothered with editing the first frog and saved it as <code>frog00.gif</code>.
+Then I re-animated the whole thing using the 
+<b>-globmap</b> option, which takes the <i>Color Map</i> from the first GIF and uses it in all the
+subsequent frames, i.e. <i>Images</i>.
+
+</p><p>The animation script now looks as follows: 
+</p><pre>#! /bin/sh
+whirlgif -globmap -background 5 -loop 0 -trans 5 -disp back -o <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/froganim.gif">froganim.gif</a> \
+-time 80 frog00.gif \
+-time 20 frog02.gif frog03.gif frog04.gif frog05.gif frog06.gif frog07.gif \
+   frog08.gif frog09.gif frog10.gif frog11.gif frog12.gif frog13.gif frog14.gif \
+   frog15.gif frog16.gif frog17.gif frog18.gif frog19.gif frog20.gif frog21.gif \
+   frog22.gif frog23.gif frog24.gif \
+-time 15 frog25.gif frog26.gif frog27.gif \
+-time 300 frog28.gif
+exit
+</pre> 
+
+<p>The new file is 19,236 bytes. The reduction in size - as well as time for loading - is some 20%.
+You will not see any difference between the two animations <i>unless</i> your browser treats 16-color maps
+different from 256-color maps.
+</p><blockquote><font size="-1"></font><p><font size="-1">The size is reduced by 3,783 bytes.  This is
+more than the reduction of the global color map from 3*256 to 3*16
+i.e. 720 bytes.
+-&nbsp;We have here one of many examples where a
+smaller color map saves more -&nbsp;3,063 bytes&nbsp;- than the space saved by the color map alone.
+The explanation demands several words and some math.  It is therefore left as a challenge for
+those interested in the details of how GIFs are packed.</font></p></blockquote>
+
+
+<h3><a name="Ex3">Example 3</a>.</h3>
+<p>To create an even smaller animation, I can use the <b>-minimize</b> option.  I give up the transparent
+option, and repaint the gray background white  in all the 28 frames. The disposal method will be
+set to the default of Whirlgif.
+If I show the animated frog on a white background and without a frame, few people will note the difference,
+even if it actually uses only 8 different colors.
+
+</p><pre>#! /bin/sh
+whirlgif -globmap -minimize -loop 0 -o <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/minifrog.gif">minifrog.gif</a> \
+-time 80 a00.gif \
+-time 20 a01.gif a02.gif a03.gif a04.gif a05.gif a06.gif a07.gif \
+   a08.gif a09.gif a10.gif a11.gif a12.gif a13.gif a14.gif a15.gif \
+   a16.gif a17.gif a18.gif a19.gif a20.gif a21.gif a22.gif a23.gif \
+-time 15 a24.gif a25.gif a26.gif \
+-time 300 a27.gif
+exit
+</pre> 
+
+<p><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/frogresults.html#output">The output from the examples 1-3</a> is shown on a separate
+page for comparison. The resulting size of the minimized frog 
+is  4,892 bytes, compared to the original 23,019 bytes. I could
+have squeezed it a couple of bytes more, had I had the tools to make 8-color GIFs.
+</p><p>An other way to
+squeeze the animation is to consider the loop as a circle, where you can start anywhere.
+If I start  with the simplest image of them all, 
+<code>a27.gif</code>, and then continue with <code>a00.gif</code> et cetera,
+the animation gets smaller.  The disadvantage is that the first image only shows the frog sitting there
+alone, and that image does not make sense as a <i>mail-to-me</i> image if  presented by a
+browser which cannot show animations, or where animation is disabled.
+
+
+
+</p><h3><a name="Ex4">Example 4</a>.</h3>
+<img src="./Examples and Tips; How to optimize_files/pibe-xxx.gif" align="left" width="37" height="37" alt="The smokeless image">
+<p>The pipe smoker icon on <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/index.htm">my home page</a> was made by
+copying the same image without smoke 30 times
+and then let the smoke develop from image to image.
+</p><center><img src="./Examples and Tips; How to optimize_files/pibe.gif" width="37" height="37" alt="I am a pipe smoker"></center>
+
+<pre>#! /bin/sh
+whirlgif -minimize -time 25 -o ../images/pibe.gif -loop 0 /tmp/pibe???.gif 
+exit
+</pre> 
+<p>The resulting size is 2,685 bytes.  Without the <i>-minimize</i> option, 
+it would be 8,715 bytes.
+
+</p><h3><a name="Ex5">Example 5</a>.</h3>
+<p>You do not need a lot of different images to make an animation. Once upon a time, I
+started up the intranet of one company, and nobody had decided, how the welcoming
+page should look.
+<img src="./Examples and Tips; How to optimize_files/Ball.gif" align="right" width="111" height="111" alt="Your Company Logo">
+I got inspired by looking at the screens in the company,  where the standard screen
+saver had the logo running around like a billiards ball.
+
+</p><p>Let the red spot with its yellow border represent the company logo. The ugly
+greenish color around it will be the transparent color and thus invisible.
+
+</p><p>I wanted to animate the preliminary page with the company logo running as a billiards ball within a frame, and name
+the image <cite>While We Wait For a Good Home Page</cite>. 
+
+</p><p>My idea about the first frame was that it should look like the image here:<img src="./Examples and Tips; How to optimize_files/Ball0.gif" width="591" height="351" align="top" alt="An image of the first frame"><br>
+
+I cooked up a dirty little (awk) program which calculated the positions of the logo and generated the
+following script:
+
+</p><pre>#! /bin/sh
+whirlgif -trans 0 -background 3 -o <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/pauseex.html#head">pausebillede.gif</a> -loop 0 \
+-disp back -time 300 Ball1.gif \
+-disp back -time 30 -off 64:48 Ball.gif \
+-disp back -time 30 -off 128:96 Ball.gif \
+-disp back -time 30 -off 192:144 Ball.gif \
+-disp back -time 30 -off 256:192 Ball.gif \
+-disp back -time 60 -off 320:240 Ball.gif \
+-disp back -time 30 -off 373:200 Ball.gif \
+-disp back -time 30 -off 426:160 Ball.gif \
+-disp back -time 60 -off 480:120 Ball.gif \
+-disp back -time 30 -off 427:80 Ball.gif \
+-disp back -time 30 -off 374:40 Ball.gif \
+-disp back -time 60 -off 320:0 Ball.gif \
+-disp back -time 30 -off 256:48 Ball.gif \
+-disp back -time 30 -off 192:96 Ball.gif \
+-disp back -time 30 -off 128:144 Ball.gif \
+-disp back -time 30 -off 64:192 Ball.gif \
+-disp back -time 60 -off 0:240 Ball.gif \
+-disp back -time 30 -off 40:180 Ball.gif \
+-disp back -time 30 -off 80:120 Ball.gif \
+-disp back -time 30 -off 120:60 Ball.gif \
+-disp back -time 60 -off 160:0 Ball.gif \
+-disp back -time 30 -off 200:60 Ball.gif \
+-disp back -time 30 -off 240:120 Ball.gif \
+-disp back -time 30 -off 280:180 Ball.gif \
+-disp back -time 60 -off 320:240 Ball.gif \
+-disp back -time 30 -off 360:180 Ball.gif \
+-disp back -time 30 -off 400:120 Ball.gif \
+-disp back -time 30 -off 440:60 Ball.gif \
+-disp back -time 60 -off 480:0 Ball.gif \
+-disp back -time 30 -off 416:48 Ball.gif \
+-disp back -time 30 -off 352:96 Ball.gif \
+-disp back -time 30 -off 288:144 Ball.gif \
+-disp back -time 30 -off 224:192 Ball.gif \
+-disp back -time 60 -off 160:240 Ball.gif \
+-disp back -time 30 -off 107:160 Ball.gif \
+-disp back -time 30 -off 54:80 Ball.gif 
+exit
+</pre>
+
+<p><a name="problem">I ran into a problem</a>.  It seemed as if all browsers let the document
+background override the background of the GIF  -  it is, however, more complicated than that
+(<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#reex5">see below</a>).
+As I had decided that the image should run within a frame, my solution was to order the
+browser to set  the background color of a table to what I had intended should be the
+background color of my image.  The HTML code reads:
+</p><pre>&lt;TABLE BORDER=9 BGCOLOR="#0000FF" CELLPADDING=0&gt;&lt;TR&gt;&lt;TD&gt;
+&lt;IMG SRC="<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/pauseex.html#head">pausebillede.gif</a>" WIDTH="591" HEIGHT="351" ALT=""&gt;
+&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;
+</pre>
+
+<h3><a name="Ex6">Example 6</a>.</h3>
+<p><img src="./Examples and Tips; How to optimize_files/bbog00.gif" width="43" height="45" align="LEFT" valign="TOP" alt="The first frame">
+I have
+<img src="./Examples and Tips; How to optimize_files/bladbog1.gif" width="43" height="45" align="RIGHT" valign="TOP" alt="Image of my first animation">
+been asked whether minimizing and a transparent background can go together.  They can!
+An example is this picture of a simple "cartoon" of the sort that many of us created
+during boring school hours.  I made it up as a logo for Whirlgif rev 3 (like Kevin Kadow's
+reversly turning earth is a logo for Whirlgif rev 2).
+There are 12 frames, and the script is:
+</p><pre>#! /bin/sh
+whirlgif -loop 0 -minimize -trans 4 -background 4 -o bladbog1.gif \
+      -time 10 bbog??.gif
+exit
+</pre>
+<p><b>The trick is</b> to have some non transparent raster data replace the previous data.
+The little pencil is not only there to show the tools which
+the "artist" used.  Some of it replaces the upper corner of the falling page.
+
+</p><hr>
+<hr>
+<h2 align="CENTER"><a name="Tips">Tips.</a></h2>
+Whirlgif in all releases talks GIF!  The input files are GIFs and the output file is a GIF.
+The program may be called <cite>crude</cite> in the sense that if the input files are garbage, the output will be garbage.
+<h3>The Structure of An Animated GIF.</h3>
+<p>If you have a fair idea of the structure of a GIF-file, <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#Colors">skip this section</a>, as it will not go into details. </p><p>Two GIF formats exist, called GIF87a and GIF89a.
+
+</p><p><table border="1">
+
+<caption><b>Overview of the <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#head">GIF87a</a> Format.</b></caption>
+
+<tbody><tr><td><center>Mandatory</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec3">GIF
+Signature</a></b></td><td>Contains the text <code>GIF87A</code></td></tr>
+
+<tr><td><center>Mandatory</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec4">Screen
+Descriptor</a></b></td><td>The size of the GIF
+screen i.e. the total size to be set off to all images below. Whether or not a Global Color Map follows - and if so - the
+number of colors used in the Global Color Map and the color used as background color.</td></tr>
+
+<tr><td><center>Optional</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec5">Global
+Color Map</a></b></td><td>The default
+colors to be used in the images.</td></tr>
+
+<tr><td rowspan="3"><center>Repeated as many times as you need<br>The <i>Local Color Map</i> is
+optional</center></td>
+
+<td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec6">Image Descriptor</a></b></td><td>The size and the position of the following image. Whether
+or not a local color map should be used, and the size of it.</td></tr>
+
+<tr><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec7">Local Color Map</a></b></td><td>The colors to be used in the following image.</td></tr>
+
+<tr><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec8">Raster Data</a></b></td><td>Each pixel of
+the image is described by its color. Data are
+compressed (<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/lzw.html">LZW</a>).</td></tr>
+
+<tr><td><center>Mandatory</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html#sec9">GIF
+Terminator</a></b></td><td>Ends the GIF file</td></tr>
+
+</tbody></table>
+</p><p>The <i>Color Maps</i> are optional.  The GIF87a specifications state that a <i>Default Color
+Map</i> should be used, if all <i>Color Maps</i> are absent. It says nothing, however, about what
+a <i>Default Color Map</i> is.  Whirlgif needs at least one of them.
+
+</p><p>As you may understand, it is possible in a GIF87a file to define some sort of a <i>bulletin board</i>,
+with several pictures (images) on it.  Very few GIF viewers can handle more than one image, and perhaps
+only two of them will show the total <i>screen</i> with its background color.
+Browsers like e.g. <a href="http://web.archive.org/web/20050216195116/http://www.netscape.com/">Netscape</a>,
+<a href="http://web.archive.org/web/20050216195116/http://opera.nta.no/">Opera</a>, and the <a href="http://web.archive.org/web/20050216195116/http://www.microsoft.com/products/">Internet
+Explorer</a>  <a name="retn3">can to some</a> extend. <a name="reex5">I had</a> a little
+<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#problem">problem with example 5</a> above and have made a
+<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/footnotes.html#note3">note ³) about the treatment of a
+large background</a> with a small image.
+
+</p><p><table border="1">
+
+<caption><b>Overview of the <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#head">GIF89a</a> Format as It Is Used in Whirlgif.</b></caption>
+
+<tbody><tr><td><center>Always</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec6">GIF
+Signature</a></b></td><td>Contains the text <code>GIF89A</code></td></tr>
+
+<tr><td><center>Always</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec18">Screen
+Descriptor</a></b></td><td>The size of the GIF
+screen i.e. the total size to be set off to all images below. Whether or not a Global Color Map follows - and if so - the
+number of colors used in the Global Color Map and the color used as background color.</td>
+
+</tr><tr><td><center>Always</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec19">Global
+Color Map</a></b></td><td>It is taken from the first image
+whether it contains a <i>Global</i> or a <i>Local Color Map</i></td></tr>
+
+<tr><td><center>Possibly</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec26">Application
+Extension</a></b></td><td>Contains the Netscape Loop Marker</td></tr>
+
+<tr><td rowspan="4"><center>Repeated as many times as there are images<br>The <i>Local Color Map</i> is
+only written, if it differs from the global.</center></td>
+
+
+<td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec23">Control Block</a></b></td><td>Tells whether or not a transparent
+color is defined, and if so, the color.
+The delay time before this (coming) image is to be presented. The <i>Disposal method</i>, i.e. what should
+happen after this image has been shown</td></tr>
+
+
+<tr><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec20">Image Descriptor</a></b></td><td>The size
+and the position of the following image. Whether
+or not a local color map should be used, and the size of it.</td></tr>
+
+
+<tr><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec21">Local Color Map</a></b></td><td>The colors
+to be used in the following image, if they differ from the global.</td></tr>
+
+<tr><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec22">Raster Data</a></b></td><td>Each pixel
+of the image is described by its color. Data are
+compressed (<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/lzw.html">LZW</a>).</td></tr>
+
+<tr><td><center>Always</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec24">Comment
+Extension</a></b></td><td>An ASCII text. Either a user defined comment e.g. about
+who created the animation, or the standard comment that says that the file was compiled with Whirlgif,
+the release, and the number of images.</td></tr>
+
+<tr><td><center>Always</center></td><td><b><a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec27">GIF
+Terminator</a></b></td><td>Ends the GIF file</td></tr>
+
+</tbody></table>
+
+</p><p>The above does not give all variants of the GIF89a formats. If you want to know more, follow the
+links  in the second column.  The terms used throughout these notes and in the program texts 
+differ from those of the <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#toc">GIF89a specifications</a>, as earlier programmers
+and I have chosen to stick to the GIF87a term for equivalent portions of GIFs. 
+
+
+</p><h3><a name="Colors">Colors.</a></h3>
+<p>Each <i>Color Map</i> takes up 3 times as many bytes as the number of colors. <i>Color Maps</i>
+in GIF files can have <b>256</b>, 128, 64, 32, <b>16</b>, 8, 4, or <b>2</b> colors.  Most 
+paint programs can only write GIFs indicated by the boldface numbers.  Whirlgif can read and write
+them all but depends on the abilities of your paint program(s), which often call
+the <i>Color Map</i> your <i>palette</i>.
+
+</p><p>If  your aim is to make relatively small GIFs, it is a good rule to use as few colors as possible.
+In animated GIFs use the same <i>Color Map</i> throughout your images.
+
+</p><p>The <b>-globmap</b> option  minimizes the amount of <i>Color Maps</i> by remapping
+each pixel to the <i>nearest
+color</i> in the <i>Global Color Map</i>.  In this program it is a pure geometrical approximation.
+Often it is a good approximation. View your animation
+carefully, however, if you use the <b>-globmap</b> option.
+<cite>The beauty is in the eye of the beholder</cite>.
+
+</p><p>If you are unhappy with the result, try first to edit the colors of the first image. 
+Ultimately, you may have to reduce the number of colors in each frame by means of
+your favorite paint program.
+For certain GIFs this may not drastically reduce the size of the file. The reason is that the
+program may <i>dither</i> the colors to look almost unchanged.
+The LZW compression algorithm gives the best results with relatively large areas of either
+the same color or with a systematic pattern. <i>Dithering</i>, however, usually consists in making an
+irregular pattern of color dots which to the eye blends to something acceptable.
+
+</p><h3>The Smallest Difference.</h3>
+<p>The <b>-minimize</b> option makes Whirlgif find the smallest difference between two successive images,
+and then deliver the smallest rectangle covering the differences together with the position of the rectangle.
+It can give some really small animations.
+</p><p>If you try to optimize the size of an animated GIF consisting of <i>dithered</i> images, the reduction
+in size may not be very astounding.
+A random dithering will usually yield a very large area with different random patterns.
+
+</p><h3>Things to be Careful With.</h3>
+<p>My advice is to set the background color and the transparent color to the same value.  Neither Netscape
+nor the Internet Explorer follow the <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html#sec18">specifications</a> as I read them, and they differ
+somewhat. The Norwegian browser Opera tries it best to be bug to bug compatible with Netscape.
+</p><p>If you want to create a bulletin board by displaying one or more images within the same
+(large) Screen, preferably use Color Map index [0] as your background, and use the
+<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#problem">trick outlined in Example 5 above</a>.
+</p><p>Avoid  the disposal method <b>-disp prev</b>.  The result looks different in Netscape and the
+Internet Explorer.
+</p><p>If you intend to present your animation on a web page you should always give the size of the image.
+</p><center>e.g.&nbsp;&nbsp;&nbsp; <code>&lt;IMG SRC="animfrog.gif" HEIGHT=33 WIDTH=585&gt;</code></center>
+Several versions of the he Internet Explorer have problems figuring out  the size.  They need your help.
+<hr>
+<hr>
+<a name="refs"><center>
+<h3>
+References to Other Information</h3></center></a>
+Most of he information is collected while I worked with
+Whirlgif 3.00. I lost my earlier bookmarks, and I badly miss a
+reference to an Italian(?) site which contains
+comments about how GIF animations can be made - also with Whirlgif.
+Please <a href="http://web.archive.org/web/20050216195116/mailto:dino@danbbs.dk">mail to me</a> or <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/guestbk.htm">write it in
+the list of references, tips etc</a>, if you know something about it.
+
+<dl>
+<dt>
+ <a href="http://web.archive.org/web/20050216195116/news:alt.binaries.pictures.animated.gifs">The
+newsgroup <tt>alt.binaries.pictures.animated.gifs</tt></a> brings a steadily flowing
+stream of animated GIFs.
+</dt><dd>The group attracts a lot of friendly people. Many of them will
+help you, if you need a banner, an animation of a love letter, or whatever.
+Lurk a while, get ideas, and enjoy their friendlines.
+<hr>
+</dd><dt>
+<a href="http://web.archive.org/web/20050216195116/http://pages.prodigy.net/stevejcox/FAQ/faqindex.htm">The
+official FAQ pages</a> of the newsgroup come with references to various sources
+for animated GIFs.
+</dt><dd>Of course it contains lots of multi media and animated illustrations.
+It is an impressive experience which can give you many
+ideas.  The FAQ is also published as a plain text and in a 
+<a href="http://web.archive.org/web/20050216195116/http://www.fortunecity.com/meltingpot/navarino/297/faq01.html">pure HTML
+version</a> which is the form I prefer. Perhaps because I have to pay for the
+load time of the big one over my telephone bill.
+<hr>
+<a name="retn4"></a>
+</dd><dt><a href="http://web.archive.org/web/20050216195116/http://www.lcdf.org/~eddietwo/gifsicle/">Gifsicle,  by Eddie Kohler et al.</a> is
+a true competitor.&nbsp;
+Like Whirlgif it is command line driven 
+</dt><dd>and the input and output files are GIFs.&nbsp;
+Gifsicle is freeware and uses the <a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/footnotes.html#note4">same fast &amp; free
+LZW encoder <sup><font size="-1">4</font></sup>)</a> as Whirlgif.&nbsp;
+Gifsicle has a lot of options - many more than Whirlgif.&nbsp;
+Gifsicle's  <i>--optimize</i> function may create smaller
+GIFs than Whirlgif's <i>-minimize</i> option.&nbsp;
+Gifsicle can perform many of the functions where Whirlgif needs a paint program. 
+<hr>
+</dd><dt>
+<a href="http://web.archive.org/web/20050216195116/http://www.barrysclipart.com/index.html">Barry's Clip Art Server</a>
+is an example of a source where animations are offered to the public.
+</dt><dd>The pages are beautifully ordered, and it should be easy to
+find your way to the type of animation that you need.  Barry
+generates his pages on a MAC.
+<hr>
+</dd><dt><a href="http://web.archive.org/web/20050216195116/http://ftp.kom.tuwien.ac.at/graphics/irfanview/">IrfanView
+by Skiljan Irfan</a> is my favorite viewer for a quick view at an animated GIF ...
+</dt><dd>even if an animation sometimes is displayed somewhat flickering  when the animation
+ uses the disposal method "restore to background". The flickering is caused by Irfan
+wanting to show the background a short while before the next image,
+IrfanView is <i>Freeware</i> for non commercial use.
+Irfan knows a lot about image formats, and the program is maintained on a regular basis.
+The program is for Windows95/98/NT only.
+
+</dd></dl>
+<hr>
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/download.html">Download</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/whirlgifman.html">Manual</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/examples.html#top">Examples</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/lzw.html">LZW explained</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif87.html">GIF 87a Spec</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/gif89.html">GIF 89a Spec</a>]
+ [<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/whirlgif/index.html">Whirlgif 3.x Homepage</a>]
+<hr>
+<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/"><img src="./Examples and Tips; How to optimize_files/hus.gif" border="0" width="38" height="38" alt="My Home"></a>
+<a href="http://web.archive.org/web/20050216195116/http://www.danbbs.dk/~dino/">Hans Dinsen-Hansen's home page</a>
+<center>
+<address><font size="-1">www.danbbs.dk/~dino/whirlgif/examples.html</font></address>
+</center><center>
+<font size="-2">Last updated: Sat Sep 18 1999</font>
+</center>
+
+
+
+<!--
+     FILE ARCHIVED ON 19:51:16 Feb 16, 2005 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 14:48:28 Sep 06, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  CDXLines.iter: 26.29 (3)
+  PetaboxLoader3.resolve: 113.388 (2)
+  PetaboxLoader3.datanode: 488.07 (4)
+  esindex: 0.015
+  LoadShardBlock: 462.315 (3)
+  captures_list: 496.736
+  exclusion.robots: 0.313
+  load_resource: 250.395
+  RedisCDXSource: 1.65
+  exclusion.robots.policy: 0.296
+--></body></html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.test.BitmapFillTestActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:text="The first button shows you fill the same Bitmap(640x640) 5 times by using setPixel method.\n
+        The second button show you fill the Bitmap(640x640) 5 times by using setPixels method.\n
+        The third button show you fill the Bitmap(640x640) 5 times by using NDK.\n
+        See the performance between two different functions."/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="12dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fillButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Fill1"/>
+
+        <Button
+            android:id="@+id/fillButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Fill2"/>
+
+        <Button
+            android:id="@+id/fillButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Fill3"/>
+    </LinearLayout>
+
+</FrameLayout>

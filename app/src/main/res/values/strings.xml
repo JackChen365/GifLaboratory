@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GifLaboratory</string>
+    <string name="download_fail">下载失败</string>
+</resources>

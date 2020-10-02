@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/fileBlockOffset"
+        android:text="Logical Screen Descriptor"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="12dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Image Descriptor"
+        android:textColor="@android:color/black"/>
+
+
+    <TextView
+        android:id="@+id/fileBlockLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Length"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/fileBlockOffset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Offset"
+        android:layout_marginRight="8dp"
+        app:layout_constraintTop_toTopOf="@+id/fileBlockLength"
+        app:layout_constraintRight_toLeftOf="@+id/fileBlockLength"/>
+
+    <TextView
+        android:id="@+id/fileBlockLengthValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/fileBlockLength"
+        app:layout_constraintRight_toRightOf="@+id/fileBlockLength"
+        app:layout_constraintTop_toBottomOf="@+id/fileBlockLength"
+        tools:text="7"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/fileBlockOffsetValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/fileBlockOffset"
+        app:layout_constraintRight_toRightOf="@+id/fileBlockOffset"
+        app:layout_constraintTop_toBottomOf="@+id/fileBlockOffset"
+        tools:text="0"
+        android:layout_marginTop="8dp"/>
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_grey_200"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/titleView"/>
+
+    <LinearLayout
+        android:id="@+id/attributeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider1"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_grey_200"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attributeLayout"/>
+
+    <com.cz.android.gif.sample.extension.ByteTextView
+        android:id="@+id/byteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        android:padding="12dp"
+        android:maxLines="2"/>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_grey_200"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/byteTextView"/>
+
+    <TextView
+        android:id="@+id/byteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        android:text="Show Bytes"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:gravity="center"
+        android:background="@drawable/sample_white_item_selector"/>
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="@color/md_grey_200"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/byteButton"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
