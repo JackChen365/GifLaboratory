@@ -129,7 +129,8 @@ public class ApplicationExtensionBlockParser extends GifBlockParser {
         ByteTextView byteTextView=layout.findViewById(R.id.byteTextView);
         StringBuilder output = new StringBuilder();
         byteBuffer.flip();
-        for(int i=0;i<byteBuffer.limit();i++){
+        int length=Math.min(100,byteBuffer.limit());
+        for(int i=0;i<length;i++){
             byte b = byteBuffer.get();
             CharSequence value = padStart(Integer.toHexString(b & 0xFF),2, '0').toString().toUpperCase();
             output.append(value);

@@ -1,6 +1,5 @@
 package com.cz.android.gif.sample.ui.test
 
-import android.Manifest
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +8,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.cz.android.gif.sample.R
 import com.cz.android.sample.analysis.AbsAnalyzer
 import com.cz.android.sample.library.analysis.HtmlSource
-import com.cz.android.sample.library.function.permission.SamplePermission
 import kotlinx.android.synthetic.main.activity_gif_list.*
-import okhttp3.*
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -19,7 +19,6 @@ import java.util.*
 import java.util.regex.Pattern
 import kotlin.concurrent.thread
 
-@SamplePermission(Manifest.permission.READ_EXTERNAL_STORAGE)
 class GifListActivity : AppCompatActivity(){
     companion object{
         private const val TAG="GifListActivity"

@@ -75,11 +75,6 @@ public class AnimationScheduler extends HandlerThread implements Handler.Callbac
         return decoderScheduler;
     }
     /**
-     * The update callback list.
-     */
-    private List<AnimationCallback> updateCallbackList=new ArrayList<>();
-
-    /**
      * The handle only for this thread.
      */
     private Handler handler;

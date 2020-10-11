@@ -33,7 +33,6 @@ public class GifListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private static final String TAG="GifListAdapter";
     private List<String> errorList=new ArrayList<>();
     private OkHttpClient httpClient = new OkHttpClient();
-    private List<RecyclerView.ViewHolder> pendingViewHolderList=new ArrayList<>();
     private RecyclerView recyclerView;
     private LayoutInflater layoutInflater;
     private List<String> imageList;
@@ -74,33 +73,25 @@ public class GifListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             textureGifView.loadImage(file);
             textureGifView.start();
         }
-        checkAndRemovePendingViewHolderList();
     }
 
     @Override
-    public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
+    public void onViewDetachedFromWindow(@NonNull final RecyclerView.ViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
         int position = holder.getLayoutPosition();
         NativeTextureGifView textureGifView=holder.itemView.findViewById(R.id.textureGifView);
         Log.i(TAG,"onViewDetachedFromWindow:"+position+" id:"+textureGifView.hashCode()+" start.");
         if(!textureGifView.isLockAvailable()){
             holder.setIsRecyclable(false);
-            pendingViewHolderList.add(holder);
+            textureGifView.setOnRecycleListener(new NativeTextureGifView.OnRecycleListener() {
+                @Override
+                public void onRecycle() {
+                    holder.setIsRecyclable(true);
+                }
+            });
         }
-        checkAndRemovePendingViewHolderList();
     }
 
-    private void checkAndRemovePendingViewHolderList(){
-        Iterator<RecyclerView.ViewHolder> iterator = pendingViewHolderList.iterator();
-        while(iterator.hasNext()){
-            RecyclerView.ViewHolder holder = iterator.next();
-            NativeTextureGifView textureGifView=holder.itemView.findViewById(R.id.textureGifView);
-            if(textureGifView.isLockAvailable()){
-                holder.setIsRecyclable(true);
-                iterator.remove();
-            }
-        }
-    }
 
     @NonNull
     @Override

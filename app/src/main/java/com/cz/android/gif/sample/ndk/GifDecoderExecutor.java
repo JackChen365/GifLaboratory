@@ -16,7 +16,7 @@ public class GifDecoderExecutor implements Executor {
     }
 
     public GifDecoderExecutor(int coreSize) {
-        executor= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        executor= Executors.newFixedThreadPool(coreSize);
     }
 
     @Override

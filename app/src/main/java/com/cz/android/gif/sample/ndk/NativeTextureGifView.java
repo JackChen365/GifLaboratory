@@ -33,6 +33,7 @@ public class NativeTextureGifView extends TextureView implements TextureView.Sur
     private NativeDecoder nativeDecoder=new NativeDecoder();
     private AnimationScheduler scheduler = AnimationScheduler.getDecoderScheduler();
     private AnimationCallback callback=new AnimationCallbackImpl();
+    private OnRecycleListener listener;
     private Matrix matrix=new Matrix();
     private Bitmap currentFrame;
     private int frameIndex;
@@ -139,6 +140,7 @@ public class NativeTextureGifView extends TextureView implements TextureView.Sur
         if(!isRunning){
             frameIndex = 0;
             isRunning = true;
+            listener = null;
             lockState.set(AVAILABLE_STATE);
             //If the surface is ready. start the animation.
             if(isAvailable()){
@@ -235,8 +237,20 @@ public class NativeTextureGifView extends TextureView implements TextureView.Sur
             scheduler.removeMessage(callback,AnimationScheduler.ACTION_START);
             scheduler.removeMessage(callback,AnimationScheduler.ACTION_UPDATE);
             lockState.decrementAndGet();
+
+            if(null!=listener){
+                listener.onRecycle();
+            }
         }
         return true;
+    }
+
+    public void setOnRecycleListener(OnRecycleListener listener){
+        this.listener=listener;
+    }
+
+    public interface OnRecycleListener{
+        void onRecycle();
     }
 
     private class AnimationCallbackImpl implements AnimationCallback{
